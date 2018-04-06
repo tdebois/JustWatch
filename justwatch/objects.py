@@ -32,7 +32,11 @@ class FileItem(object):
 
     def __eq__(self, other):
 
-        return self.path == other.path
+        if (self.timestamp != other.timestamp) and (self.hash != other.hash):
+            return True
+
+        else:
+            return False
 
     def __repr__(self):
 
