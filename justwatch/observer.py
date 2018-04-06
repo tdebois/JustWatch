@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import functools
+import time
 
 from justwatch.objects import FileItem
 
@@ -15,12 +15,7 @@ class Observer(object):
 
     def set_callback(self, func):
 
-        @functools.wraps(func)
-        def wrapper():
-
-            self.callback = func
-
-        return wrapper
+        self.callback = func
 
     def watch(self):
 
@@ -34,3 +29,5 @@ class Observer(object):
 
                     self.callback(new_item)
                     self.manager.files_container[index] = new_item
+
+            time.sleep(0.5)
