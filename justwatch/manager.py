@@ -15,13 +15,13 @@ class WatchManager(object):
         self._check_isfile(path)
         self.files_container.append(path)
 
-    def add_dir(self, dirpath, ignore_ext=None):
+    def add_dir(self, dirpath, only_ext=None, ignore_ext=None):
 
         if not os.path.isdir(dirpath):
             raise IOError("Directory not found: '{}'".format(dirpath))
 
-        if ignore_ext and not isinstance(ignore_ext, list):
-            raise TypeError("ignore_ext is only list type")
+        self._validate_ext(ignore_ext, "ignore_ext")
+        self._validate_ext(only_ext, "only_ext")
 
         for current, dirs, files in os.walk(dirpath):
 
@@ -34,14 +34,20 @@ class WatchManager(object):
 
             for _file in current_files:
 
-                if ignore_ext:
-                    ext = _file.split(".")[-1].lower()
+                file_ext = _file.split(".")[-1].lower()
 
-                    if ext not in ignore_ext:
+                if only_ext:
+                    if file_ext in only_ext:
                         self.add_file(_file)
 
                 else:
-                    self.add_file(_file)
+
+                    if ignore_ext:
+                        if file_ext not in ignore_ext:
+                            self.add_file(_file)
+
+                    else:
+                        self.add_file(_file)
 
     def _check_isfile(self, path):
 
@@ -50,3 +56,8 @@ class WatchManager(object):
 
         else:
             return True
+
+    def _validate_ext(self, ext_list, ext_name):
+
+        if ext_list and not isinstance(ext_list, list):
+            raise TypeError("{0} is list type only.".format(ext_name))
