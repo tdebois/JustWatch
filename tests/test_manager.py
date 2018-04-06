@@ -4,6 +4,7 @@
 import os
 from unittest import TestCase
 from justwatch.manager import WatchManager
+from justwatch.objects import FileItem
 
 
 class ManagerTestCase(TestCase):
@@ -25,7 +26,7 @@ class ManagerTestCase(TestCase):
 
         self.assertEqual(
             self.manager.files_container,
-            ["./README.md"]
+            [FileItem("./README.md")]
         )
 
     def test_add_dir(self):
@@ -38,7 +39,7 @@ class ManagerTestCase(TestCase):
 
         files = os.listdir(testcase)
         add_dir_result = map(
-            (lambda _file: os.path.join(testcase, _file)), files)
+            (lambda _file: FileItem(os.path.join(testcase, _file))), files)
 
         self.assertEqual(
             self.manager.files_container,
@@ -57,7 +58,7 @@ class ManagerTestCase(TestCase):
 
         files = os.listdir(testcase)
         add_dir_result = map(
-            (lambda _file: os.path.join(testcase, _file)),
+            (lambda _file: FileItem(os.path.join(testcase, _file))),
             [_file for _file in files if not _file.endswith(testext)])
 
         self.assertEqual(
@@ -77,7 +78,7 @@ class ManagerTestCase(TestCase):
 
         files = os.listdir(testcase)
         add_dir_result = map(
-            (lambda _file: os.path.join(testcase, _file)),
+            (lambda _file: FileItem(os.path.join(testcase, _file))),
             [_file for _file in files if _file.endswith(testext)])
 
         self.assertEqual(

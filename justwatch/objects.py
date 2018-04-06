@@ -30,6 +30,10 @@ class FileItem(object):
 
         return sha256(content).hexdigest()
 
+    def __eq__(self, other):
+
+        return self.path == other.path
+
     def __repr__(self):
 
         return "<FileItem path='{0}'>".format(self.path)
