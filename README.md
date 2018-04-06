@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/alice1017/JustWatch.svg?branch=master)](https://travis-ci.org/alice1017/JustWatch)
 [![Coverage Status](https://coveralls.io/repos/github/alice1017/JustWatch/badge.svg)](https://coveralls.io/github/alice1017/JustWatch)
 
-![sample code](code.png)
+<img src="code.png" alt="sample code" style="max-width:100%;" height="600px">
 
 ## :page_facing_up: Overview
 
