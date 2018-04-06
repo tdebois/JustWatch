@@ -3,6 +3,8 @@
 
 import os
 
+from justwatch.objects import FileItem
+
 
 class WatchManager(object):
 
@@ -13,7 +15,9 @@ class WatchManager(object):
     def add_file(self, path):
 
         self._check_isfile(path)
-        self.files_container.append(path)
+        self.files_container.append(
+            FileItem(path)
+        )
 
     def add_dir(self, dirpath, only_ext=None, ignore_ext=None):
 
