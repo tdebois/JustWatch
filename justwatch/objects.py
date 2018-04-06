@@ -32,7 +32,7 @@ class FileItem(object):
 
     def __eq__(self, other):
 
-        if (self.timestamp != other.timestamp) and (self.hash != other.hash):
+        if (self.timestamp == other.timestamp) and (self.hash == other.hash):
             return True
 
         else:
