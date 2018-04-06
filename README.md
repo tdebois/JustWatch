@@ -2,8 +2,8 @@
 
 [![forthebadge](http://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
 
-[![Build Status](https://travis-ci.org/alice1017/JustWatch.svg?branch=master)](https://travis-ci.org/alice1017/load-template)
-[![Coverage Status](https://coveralls.io/repos/github/alice1017/JustWatch/badge.svg)](https://coveralls.io/github/alice1017/load-template)
+[![Build Status](https://travis-ci.org/alice1017/JustWatch.svg?branch=master)](https://travis-ci.org/alice1017/JustWatch)
+[![Coverage Status](https://coveralls.io/repos/github/alice1017/JustWatch/badge.svg)](https://coveralls.io/github/alice1017/JustWatch)
 
 ![sample code](code.png)
 
