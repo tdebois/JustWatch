@@ -38,6 +38,14 @@ class FileItem(object):
         else:
             return False
 
+    def __ne__(self, other):
+
+        if (self.timestamp != other.timestamp) and (self.hash != other.hash):
+            return True
+
+        else:
+            return False
+
     def __repr__(self):
 
         return "<FileItem path='{0}'>".format(self.path)

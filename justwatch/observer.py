@@ -25,9 +25,9 @@ class Observer(object):
 
                 new_item = FileItem(item.path)
 
-                if item == new_item:
+                if item != new_item:
 
                     self.callback(new_item)
                     self.manager.files_container[index] = new_item
 
-            time.sleep(0.5)
+            time.sleep(1)
