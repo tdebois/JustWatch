@@ -1,4 +1,4 @@
 # JustWatch
 
-![sample code](code.svg)
+![sample code](code.png)
 
