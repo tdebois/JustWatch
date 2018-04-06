@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import os
 from unittest import TestCase
 from justwatch.manager import WatchManager
 
@@ -32,9 +33,14 @@ class ManagerTestCase(TestCase):
         with self.assertRaises(IOError):
             self.manager.add_dir("./test")
 
-        self.manager.add_dir("./tests")
+        testcase = "./tests"
+        self.manager.add_dir(testcase)
+
+        files = os.listdir(testcase)
+        add_dir_result = map(
+            (lambda _file: os.path.join(testcase, _file)), files)
 
         self.assertEqual(
             self.manager.files_container,
-            ["./tests/test_manager.py"]
+            add_dir_result
         )
