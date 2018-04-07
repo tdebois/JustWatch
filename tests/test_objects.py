@@ -17,13 +17,19 @@ class FileItemTestCase(TestCase):
 
         path = self._setup_testenv()
         file_obj = FileItem(path)
-
-        self.assertEqual(file_obj, FileItem(path))
-
-        self._update(path)
-
         new_obj = FileItem(path)
-        self.assertFalse(file_obj == new_obj)
+
+        self.assertEqual(
+            repr(file_obj),
+            "<FileItem path='{0}'>".format(path)
+        )
+
+        self.assertTrue(file_obj == new_obj)
+
+        path = self._update(path)
+        new_obj = FileItem(path)
+
+        self.assertTrue(file_obj != new_obj)
 
         self._teardown_testenv(path)
 
@@ -40,6 +46,8 @@ class FileItemTestCase(TestCase):
 
         with open(path, "w") as fp:
             fp.write("aaa")
+
+        return path
 
     def _teardown_testenv(self, path):
 
