@@ -30,4 +30,4 @@ class Observer(object):
                     self.callback(new_item)
                     self.manager.files_container[index] = new_item
 
-            time.sleep(1)
+            time.sleep(0.1)
