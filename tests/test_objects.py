@@ -23,10 +23,8 @@ class FileItemTestCase(TestCase):
         self.assertEqual(a, b)
         self.assertTrue(a == b)
 
-        with open(testcase, "w") as fp:
-            fp.write("bbb")
 
-        c = FileItem(testcase)
+        c = FileItem("./README.md")
 
         self.assertNotEqual(a, c)
         self.assertFalse(a == c)
