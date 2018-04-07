@@ -23,8 +23,10 @@ class FileItemTestCase(TestCase):
         self.assertEqual(a, b)
         self.assertTrue(a == b)
 
-
         c = FileItem("./README.md")
 
         self.assertNotEqual(a, c)
         self.assertFalse(a == c)
+
+        self.assertEqual(
+            repr(a), "<FileItem path='{0}'>".format(a.path))
