@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import os
+import time
 
 from unittest import TestCase
 from justwatch.objects import FileItem
@@ -27,6 +28,7 @@ class FileItemTestCase(TestCase):
         self.assertTrue(file_obj == new_obj)
 
         path = self._update(path)
+        time.sleep(0.3)
         new_obj = FileItem(path)
 
         self.assertTrue(file_obj != new_obj)
