@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import os
-import time
-
 from unittest import TestCase
 from justwatch.objects import FileItem
 
@@ -16,41 +13,20 @@ class FileItemTestCase(TestCase):
 
     def test_obj(self):
 
-        path = self._setup_testenv()
-        file_obj = FileItem(path)
-        new_obj = FileItem(path)
-
-        self.assertEqual(
-            repr(file_obj),
-            "<FileItem path='{0}'>".format(path)
-        )
-
-        self.assertTrue(file_obj == new_obj)
-
-        path = self._update(path)
-        time.sleep(0.3)
-        new_obj = FileItem(path)
-
-        self.assertTrue(file_obj != new_obj)
-
-        self._teardown_testenv(path)
-
-    def _setup_testenv(self):
-
-        path = "/tmp/justwatch-test"
-
-        with open(path, "w") as fp:
-            fp.write("Hello, World")
-
-        return path
-
-    def _update(self, path):
-
-        with open(path, "w") as fp:
+        testcase = "/tmp/justwatch-test"
+        with open(testcase, "w") as fp:
             fp.write("aaa")
 
-        return path
+        a = FileItem(testcase)
+        b = FileItem(testcase)
 
-    def _teardown_testenv(self, path):
+        self.assertEqual(a, b)
+        self.assertTrue(a == b)
 
-        os.remove(path)
+        with open(testcase, "w") as fp:
+            fp.write("bbb")
+
+        c = FileItem(testcase)
+
+        self.assertNotEqual(a, c)
+        self.assertFalse(a == c)
