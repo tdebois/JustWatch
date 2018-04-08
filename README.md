@@ -5,13 +5,60 @@
 [![Build Status](https://travis-ci.org/alice1017/JustWatch.svg?branch=master)](https://travis-ci.org/alice1017/JustWatch)
 [![Coverage Status](https://coveralls.io/repos/github/alice1017/JustWatch/badge.svg)](https://coveralls.io/github/alice1017/JustWatch)
 
-<img src="code.png" alt="sample code" style="max-width:100%;" height="600px">
 
 ## :page_facing_up: Overview
 
-## :wrench: Usage
+Python utility to watch the **file modification**.
+There are similar libraries: [pyinotify](https://github.com/seb-m/pyinotify), [watchdog](https://github.com/gorakhargosh/watchdog).
+These libraries watch the file system event, but JustWatch is supported modification **only**.
+
+## :pencil2: Usage
+
+### quick start
+
+First of all, import classes from `justwatch`:
+
+```py
+from justwatch import WatchManager, Observer
+```
+
+make `WatchManager` instance and add file or directory:
+
+```py
+manager = WatchManager()
+manager.add_file("./README.md")
+manager.add_dir("./tests")
+```
+
+make `Observer` instance and set callback:
+
+```py
+observer = Observer(manager)
+
+@observer.set_callback
+def callback(item):
+    print "Catch the modification of '{0}'".format(item.path)
+```
+
+and run `observer.watch`
+
+```py
+observer.watch()
+```
+
+### example
+
+<img src="code.png" alt="sample code" style="max-width:100%;" height="600px">
 
 ## :inbox_tray: Installation
+
+```
+$ git clone git@github.com:alice1017/JustWatch.git
+$ cd JustWatch
+$ python setup.py build install
+```
+
+TODO: I will upload pypi registry.
 
 ## :eyes: Contribution
 
