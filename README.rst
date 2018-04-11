@@ -61,7 +61,11 @@ example
     $ cd JustWatch
     $ python setup.py build install
 
-TODO: I will upload pypi registry.
+or
+
+::
+
+    $ pip install just-watch
 
 👀 Contribution
 -------------------
