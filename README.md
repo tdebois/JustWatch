@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/alice1017/JustWatch.svg?branch=master)](https://travis-ci.org/alice1017/JustWatch)
 [![Coverage Status](https://coveralls.io/repos/github/alice1017/JustWatch/badge.svg)](https://coveralls.io/github/alice1017/JustWatch)
 
+[![asciicast](https://asciinema.org/a/175956.png)](https://asciinema.org/a/175956)
 
 ## :page_facing_up: Overview
 

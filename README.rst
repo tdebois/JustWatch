@@ -5,6 +5,8 @@ JustWatch
 
 |Build Status| |Coverage Status|
 
+|Asciinema|
+
 📄 Overview
 ---------------------------
 
@@ -79,3 +81,5 @@ or
    :target: https://travis-ci.org/alice1017/JustWatch
 .. |Coverage Status| image:: https://coveralls.io/repos/github/alice1017/JustWatch/badge.svg
    :target: https://coveralls.io/github/alice1017/JustWatch
+.. |Asciinema| image:: https://asciinema.org/a/175956.png
+   :target: https://asciinema.org/a/175956
