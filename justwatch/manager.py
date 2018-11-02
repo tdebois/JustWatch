@@ -7,20 +7,21 @@ from justwatch.objects import FileItem
 
 
 class WatchManager(object):
+    """Class to manage the watcher."""
 
     def __init__(self):
-
+        """Contructor to store the files to be watched."""
         self.files_container = []
 
     def add_file(self, path):
-
+        """Add file from path."""
         self._check_isfile(path)
         self.files_container.append(
             FileItem(path)
         )
 
     def add_dir(self, dirpath, only_ext=None, ignore_ext=None):
-
+        """Add directory (and its files) from path."""
         if not os.path.isdir(dirpath):
             raise IOError("Directory not found: '{}'".format(dirpath))
 
@@ -54,7 +55,7 @@ class WatchManager(object):
                         self.add_file(_file)
 
     def _check_isfile(self, path):
-
+        """Check if is a file pointed from the path."""
         if not os.path.isfile(path):
             raise IOError("File not found: '{}'".format(path))
 
@@ -62,6 +63,6 @@ class WatchManager(object):
             return True
 
     def _validate_ext(self, ext_list, ext_name):
-
+        """Validate extension file."""
         if ext_list and not isinstance(ext_list, list):
             raise TypeError("{0} is list type only.".format(ext_name))
